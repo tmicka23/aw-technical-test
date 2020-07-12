@@ -1,0 +1,18 @@
+.aw-layout {
+  margin: 0;
+  padding: 0;
+}
+
+.aw-layout-main,
+.aw-layout-sidebar {
+  padding-top: 24px;
+}
+
+@media only screen and (min-width: 768px) {
+  .aw-layout {
+    min-height: calc(100vh - 56px);
+  }
+  .aw-layout-sidebar {
+    background-color: #f8f9fa;
+  }
+}
