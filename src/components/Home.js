@@ -1,26 +1,14 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import userContext from '../context/UserContext';
 import '../styles/MainApp.css';
 
 const Home = () => {
-  const { state, setState } = useContext(userContext);
-  console.log(state);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setState({
-      firstname: 'john',
-      lastname: 'doe',
-      gender: 'm',
-    });
-    console.log(state);
-  };
+  const { state, handleSubmit } = useContext(userContext);
 
   return (
     <div className='container'>
       <h2 className='text-center'>Bienvenue !</h2>
       <p className='text-center'>
-        {' '}
         Faisons connaissance, <br />
         vous êtes :
       </p>
@@ -34,6 +22,7 @@ const Home = () => {
             className='form-control'
             name='firstname'
             placeholder='Jane/John'
+            defaultValue={state.firstname}
           />
         </div>
         <div className='form-group'>
@@ -45,6 +34,7 @@ const Home = () => {
             className='form-control'
             name='lastname'
             placeholder='Doe'
+            defaultValue={state.lastname}
           />
         </div>
         <div className='form-group'>
@@ -54,7 +44,8 @@ const Home = () => {
           <select
             className='form-select form-control'
             aria-label='gender'
-            name='gender'>
+            name='gender'
+            defaultValue={state.gender}>
             <option value='f'>Femme</option>
             <option value='m'>Homme</option>
           </select>

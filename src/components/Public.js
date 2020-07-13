@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import userContext from '../context/UserContext';
 
 const Public = () => {
-  return <h1>Ma page Publique</h1>;
+  const user = useContext(userContext).state;
+  return <p>{JSON.stringify(user)}</p>;
 };
 
 export default Public;

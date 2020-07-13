@@ -10,12 +10,25 @@ import './App.css';
 
 const App = () => {
   const [state, setState] = useState({
-    firstname: 'fbdjsk',
-    lastname: 'vbdhsjq',
-    gender: '$',
+    firstname: '',
+    lastname: '',
+    gender: '',
   });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setState({
+      firstname: e.target.firstname.value,
+      lastname: e.target.lastname.value,
+      gender: e.target.gender.value,
+    });
+
+    e.target.firstname.value = '';
+    e.target.lastname.value = '';
+    e.target.gender.value = '';
+  };
   return (
-    <userContext.Provider value={{ state, setState: setState }}>
+    <userContext.Provider value={{ state, handleSubmit: handleSubmit }}>
       <Router>
         <div className='App'>
           <Header />
