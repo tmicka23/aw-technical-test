@@ -22,7 +22,6 @@ const Home = () => {
             className='form-control'
             name='firstname'
             placeholder='Jane/John'
-            defaultValue={state.firstname}
           />
         </div>
         <div className='form-group'>
@@ -34,7 +33,6 @@ const Home = () => {
             className='form-control'
             name='lastname'
             placeholder='Doe'
-            defaultValue={state.lastname}
           />
         </div>
         <div className='form-group'>
@@ -44,8 +42,7 @@ const Home = () => {
           <select
             className='form-select form-control'
             aria-label='gender'
-            name='gender'
-            defaultValue={state.gender}>
+            name='gender'>
             <option value='f'>Femme</option>
             <option value='m'>Homme</option>
           </select>

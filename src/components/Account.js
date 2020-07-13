@@ -1,7 +1,60 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import userContext from '../context/UserContext';
+import '../styles/MainApp.css';
 
 const Account = () => {
-  return <h1>Mon Compte</h1>;
+  const { state, handleSubmit } = useContext(userContext);
+
+  return (
+    <div className='container'>
+      <h2 className='text-center'>Mon profile</h2>
+      <p className='text-center'>Éditer :</p>
+      <form className='aw-form' onSubmit={handleSubmit}>
+        <div className='form-group'>
+          <label htmlFor='firstname' className='form-label'>
+            Prénom
+          </label>
+          <input
+            type='text'
+            className='form-control'
+            name='firstname'
+            placeholder='Jane/John'
+            defaultValue={state.firstname}
+          />
+        </div>
+        <div className='form-group'>
+          <label htmlFor='lastname' className='form-label'>
+            Nom
+          </label>
+          <input
+            type='text'
+            className='form-control'
+            name='lastname'
+            placeholder='Doe'
+            defaultValue={state.lastname}
+          />
+        </div>
+        <div className='form-group'>
+          <label className='form-label' htmlFor='gender'>
+            Genre
+          </label>
+          <select
+            className='form-select form-control'
+            aria-label='gender'
+            name='gender'
+            defaultValue={state.gender}>
+            <option value='f'>Femme</option>
+            <option value='m'>Homme</option>
+          </select>
+        </div>
+        <div className='col-12 mt-3'>
+          <button className='btn btn-primary' type='submit'>
+            Enregistrer
+          </button>
+        </div>
+      </form>
+    </div>
+  );
 };
 
 export default Account;
