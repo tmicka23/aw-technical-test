@@ -1,15 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
     <nav className='navbar navbar-light bg-light'>
       <div className='container-fluid'>
-        <a className='navbar-brand' href='/'>
+        <Link className='navbar-brand' to='/'>
           Audio Wizard
-        </a>
-        <div className='d-flex'>
-          <button className='btn btn-primary'>Mon compte</button>
-        </div>
+        </Link>
+        <Link className='btn btn-primary' to='/mon-compte'>
+          Mon compte
+        </Link>
       </div>
     </nav>
   );
