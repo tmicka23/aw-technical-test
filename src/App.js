@@ -10,12 +10,12 @@ import './App.css';
 
 const App = () => {
   const [state, setState] = useState({
-    firstname: '',
-    lastname: '',
-    gender: '',
+    firstname: 'fbdjsk',
+    lastname: 'vbdhsjq',
+    gender: '$',
   });
   return (
-    <userContext.Provider value={{ ...state, setState }}>
+    <userContext.Provider value={{ state, setState: setState }}>
       <Router>
         <div className='App'>
           <Header />
