@@ -1,39 +1,22 @@
 import React, { useContext } from 'react';
 import userContext from '../context/UserContext';
+import { useHistory } from 'react-router-dom';
 import '../styles/MainApp.css';
 
-const Account = () => {
-  const { state, handleSubmit } = useContext(userContext);
+const Gender = () => {
+  const { handleSubmit, state } = useContext(userContext);
+  const history = useHistory();
 
   return (
     <div className='container'>
       <h2 className='text-center'>Mon profile</h2>
       <p className='text-center'>Éditer :</p>
-      <form className='aw-form' onSubmit={handleSubmit}>
-        <div className='form-group'>
-          <label htmlFor='firstname' className='form-label'>
-            Prénom
-          </label>
-          <input
-            type='text'
-            className='form-control'
-            name='firstname'
-            placeholder='Jane/John'
-            defaultValue={state.firstname}
-          />
-        </div>
-        <div className='form-group'>
-          <label htmlFor='lastname' className='form-label'>
-            Nom
-          </label>
-          <input
-            type='text'
-            className='form-control'
-            name='lastname'
-            placeholder='Doe'
-            defaultValue={state.lastname}
-          />
-        </div>
+      <form
+        className='aw-form'
+        onSubmit={(e) => {
+          handleSubmit(e);
+          history.push('/resultat');
+        }}>
         <div className='form-group'>
           <label className='form-label' htmlFor='gender'>
             Genre
@@ -57,4 +40,4 @@ const Account = () => {
   );
 };
 
-export default Account;
+export default Gender;

@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import Header from './components/Header';
 import SideBar from './components/SideBar';
 import Home from './components/Home';
-import Account from './components/Account';
-import Public from './components/Public';
+import Gender from './components/Gender';
+import Result from './components/Result';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import userContext from './context/UserContext';
 import './App.css';
@@ -17,15 +17,18 @@ const App = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setState({
-      firstname: e.target.firstname.value,
-      lastname: e.target.lastname.value,
-      gender: e.target.gender.value,
-    });
-
-    e.target.firstname.value = '';
-    e.target.lastname.value = '';
-    e.target.gender.value = '';
+    if (e.target.firstname) {
+      setState({
+        ...state,
+        firstname: e.target.firstname.value,
+        lastname: e.target.lastname.value,
+      });
+    } else {
+      setState({
+        ...state,
+        gender: e.target.gender.value,
+      });
+    }
   };
   return (
     <userContext.Provider value={{ state, handleSubmit: handleSubmit }}>
@@ -39,8 +42,8 @@ const App = () => {
             <Switch>
               <div className='col-md-9 aw-layout-main'>
                 <Route exact path='/' component={Home} />
-                <Route exact path='/mon-compte' component={Account} />
-                <Route exact path='/page-publique' component={Public} />
+                <Route exact path='/genre' component={Gender} />
+                <Route exact path='/resultat' component={Result} />
               </div>
             </Switch>
           </div>

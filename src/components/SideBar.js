@@ -14,25 +14,25 @@ const Sidebar = () => {
             ? 'list-group-item list-group-item-action active'
             : 'list-group-item list-group-item-action'
         }>
-        Accueil
+        Mon Nom
       </Link>
       <Link
-        to='/mon-compte'
+        to='/genre'
         className={
-          pathname === '/mon-compte'
+          pathname === '/genre'
             ? 'list-group-item list-group-item-action active'
             : 'list-group-item list-group-item-action'
         }>
-        Mon compte
+        Mon Genre
       </Link>
       <Link
-        to='/page-publique'
+        to='/resultat'
         className={
-          pathname === '/page-publique'
+          pathname === '/resultat'
             ? 'list-group-item list-group-item-action active'
             : 'list-group-item list-group-item-action'
         }>
-        Ma page publique
+        Résultat
       </Link>
     </aside>
   );

@@ -8,9 +8,7 @@ const Header = () => {
         <Link className='navbar-brand' to='/'>
           Audio Wizard
         </Link>
-        <Link className='btn btn-primary' to='/mon-compte'>
-          Mon compte
-        </Link>
+        <button className='btn btn-primary'>Mon compte</button>
       </div>
     </nav>
   );

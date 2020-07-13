@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import userContext from '../context/UserContext';
+import { useHistory } from 'react-router-dom';
 import '../styles/MainApp.css';
 
 const Home = () => {
-  const { state, handleSubmit } = useContext(userContext);
+  const { handleSubmit, state } = useContext(userContext);
+  const history = useHistory();
 
   return (
     <div className='container'>
@@ -12,7 +14,12 @@ const Home = () => {
         Faisons connaissance, <br />
         vous êtes :
       </p>
-      <form className='aw-form' onSubmit={handleSubmit}>
+      <form
+        className='aw-form'
+        onSubmit={(e) => {
+          handleSubmit(e);
+          history.push('/genre');
+        }}>
         <div className='form-group'>
           <label htmlFor='firstname' className='form-label'>
             Prénom
@@ -22,6 +29,7 @@ const Home = () => {
             className='form-control'
             name='firstname'
             placeholder='Jane/John'
+            defaultValue={state.firstname}
           />
         </div>
         <div className='form-group'>
@@ -33,19 +41,8 @@ const Home = () => {
             className='form-control'
             name='lastname'
             placeholder='Doe'
+            defaultValue={state.lastname}
           />
-        </div>
-        <div className='form-group'>
-          <label className='form-label' htmlFor='gender'>
-            Genre
-          </label>
-          <select
-            className='form-select form-control'
-            aria-label='gender'
-            name='gender'>
-            <option value='f'>Femme</option>
-            <option value='m'>Homme</option>
-          </select>
         </div>
         <div className='col-12 mt-3'>
           <button className='btn btn-primary' type='submit'>
